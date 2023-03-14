@@ -27,24 +27,39 @@
                 </div>
                 <input class="btn" type="submit" value="submit"> 
             </form>
+
+            <ul id="users"></ul>
+                 <!--<ul class="items">
+                    <li class="item">Item1</li>
+                    <li class="item">Item2</li>
+                    <li class="item">Item3</li>
+                </ul>-->
             <script>
                 function savetolocalstorage(event){
                     event.preventDefault();
                     const name=event.target.fullname.value;
                     const email=event.target.Email.value;
-                    localStorage.setItem("name",name);
-                    localStorage.setItem("email",email);
+                    //localStorage.setItem("name",name);
+                    //localStorage.setItem("email",email);
+                    const obj={
+                        name,
+                        email
+                    }
+                    localStorage.setItem(obj.name,JSON.stringify(obj));
+                    showuseronscreen(obj);
+
     
+                }
+                function showuseronscreen(obj){
+                    const parentelem=document.getElementById("users")
+                    const childele=document.createElement("li")
+                    childele.textContent=obj.name+'-'+obj.email;
+                    parentelem.appendChild(childele)
                 }
     
             </script>
 
-            <!--<ul id="users"></ul>
-                 <ul class="items">
-                    <li class="item">Item1</li>
-                    <li class="item">Item2</li>
-                    <li class="item">Item3</li>
-                </ul>-->
+                
  
         </section>
         
