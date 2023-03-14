@@ -55,13 +55,23 @@
                     const childele=document.createElement("li")
                     childele.textContent=obj.name+'-'+obj.email;
                     const deletbtn=document.createElement('input')
+                    const editbtn=document.createElement("input")
+                    editbtn.type="button"
                     deletbtn.type="button"
                     deletbtn.value="delete"
+                    editbtn.value="edit"
                     deletbtn.onclick=()=>{
                         localStorage.removeItem(obj.name)
                         parentelem.removeChild(childele)
                     }
+                    editbtn.onclick=()=>{
+                        localStorage.removeItem(obj.name)
+                        parentelem.removeChild(childele)
+                        document.getElementById("name").value=obj.name
+                        document.getElementById("email").value=obj.email
+                    }
                     childele.appendChild(deletbtn)
+                    childele.appendChild(editbtn)
                     parentelem.appendChild(childele)
                 }
     
