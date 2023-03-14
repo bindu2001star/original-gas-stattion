@@ -54,6 +54,14 @@
                     const parentelem=document.getElementById("users")
                     const childele=document.createElement("li")
                     childele.textContent=obj.name+'-'+obj.email;
+                    const deletbtn=document.createElement('input')
+                    deletbtn.type="button"
+                    deletbtn.value="delete"
+                    deletbtn.onclick=()=>{
+                        localStorage.removeItem(obj.name)
+                        parentelem.removeChild(childele)
+                    }
+                    childele.appendChild(deletbtn)
                     parentelem.appendChild(childele)
                 }
     
