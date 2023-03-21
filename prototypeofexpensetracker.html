@@ -1,4 +1,4 @@
- <div class="container">
+<div class="container">
    <div id="main" class="card card-body">
     <h2 class="title">expense tracker app</h2>
     <form id="addForm" class="form-inline mb-3" onsubmit="savetolocalstorage(event)">
@@ -41,25 +41,6 @@
             const parentelem=document.getElementById("users")
             const childele=document.createElement("li")
             childele.textContent=obj.amount+'-'+obj.kmtravelled+'-'+obj.category1;
-            const dltbtn=document.createElement('input')
-            const editbtn=document.createElement('input')
-            editbtn.type='button'
-            editbtn.value='edit'
-            dltbtn.type="button"
-            dltbtn.value='delete'
-            dltbtn.onclick=()=>{
-              localStorage.removeItem(obj.category1)
-              parentelem.removeChild(childele)
-            }
-            editbtn.onclick=()=>{
-              localStorage.removeItem(obj.category1)
-              parentelem.removeChild(childele)
-              document.getElementById("amountinrs").value=obj.amount
-              document.getElementById("kms").value=obj.kmtravelled
-              document.getElementById("selector").value=obj.category1
-            }
-            childele.appendChild(editbtn)
-            childele.appendChild(dltbtn)
             parentelem.appendChild(childele)
         }
 
