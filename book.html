@@ -4,83 +4,27 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
         <meta http-equiv="X-UA-compatible" content="ie-edge"/>
-        
         <title>JS FOR BEGGINERS</title>
-        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header>
             <h1>Js for Begginers</h1>
         </header>
-        <section class ="container">
-            <form id="my-form" onsubmit="savetolocalstorage(event)">
-                
-                <h1>Add User</h1>
-                 <div class="msg"></div>
-                <div>
-                    <label for="name">Name:</label>
-                    <input type="text" name="fullname" id="name">
-                </div>
-                <div>
-                    <label for="Email">Email:</label>
-                    <input type="text" name="Email" id="email">
-                </div>
-                <input class="btn" type="submit" value="submit"> 
-            </form>
-
-            <ul id="users"></ul>
-                 <!--<ul class="items">
-                    <li class="item">Item1</li>
-                    <li class="item">Item2</li>
-                    <li class="item">Item3</li>
-                </ul>-->
-            <script>
-                function savetolocalstorage(event){
-                    event.preventDefault();
-                    const name=event.target.fullname.value;
-                    const email=event.target.Email.value;
-                    //localStorage.setItem("name",name);
-                    //localStorage.setItem("email",email);
-                    const obj={
-                        name,
-                        email
-                    }
-                    localStorage.setItem(obj.name,JSON.stringify(obj));
-                    showuseronscreen(obj);
-
-    
-                }
-                function showuseronscreen(obj){
-                    const parentelem=document.getElementById("users")
-                    const childele=document.createElement("li")
-                    childele.textContent=obj.name+'-'+obj.email;
-                    const deletbtn=document.createElement('input')
-                    const editbtn=document.createElement("input")
-                    editbtn.type="button"
-                    deletbtn.type="button"
-                    deletbtn.value="delete"
-                    editbtn.value="edit"
-                    deletbtn.onclick=()=>{
-                        localStorage.removeItem(obj.name)
-                        parentelem.removeChild(childele)
-                    }
-                    editbtn.onclick=()=>{
-                        localStorage.removeItem(obj.name)
-                        parentelem.removeChild(childele)
-                        document.getElementById("name").value=obj.name
-                        document.getElementById("email").value=obj.email
-                    }
-                    childele.appendChild(deletbtn)
-                    childele.appendChild(editbtn)
-                    parentelem.appendChild(childele)
-                }
-    
-            </script>
-
-                
- 
-        </section>
-        
-        <script src="main.js"></script>
     </body>
+    <section class ="container">
+        <form id="my-form">
+            <h1>Add User</h1>
+            <div class="msg"></div>
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name">
+            </div>
+            <div>
+                <label for="Email">Email:</label>
+                <input type="text" id="email">
+            </div>
+            <input class="btn" type="submit" value="submit"> 
+        </form>
+
+    </section>
 </html>

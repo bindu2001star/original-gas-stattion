@@ -1,0 +1,52 @@
+ <div class="container">
+   <div id="main" class="card card-body">
+    <h2 class="title">expense tracker app</h2>
+    <form id="addForm" class="form-inline mb-3" onsubmit="savetolocalstorage(event)">
+      <label>expenseamount:</label>
+      <input type="number" name="amount" id="amountinrs">
+      
+      <label>choose description km:</label>
+      <input type="text" name="km" id="kms">
+      <label>choose category:</label>
+      <select class="form-select" name="selection" id="selector">
+        <option>fuel</option>
+        <option>gas</option>
+        <option>diesel</option>
+        <option>petrol</option>
+        <option>cng</option>
+      </select>
+      
+      <input type="submit" class="btn btn-dark" value="Add Expense">
+    </form>
+    <ul id="users"></ul>
+    <script>
+        function savetolocalstorage(event){
+            event.preventDefault();
+            const amount=event.target.amount.value;
+            const kmtravelled=event.target.km.value;
+            const category1=event.target.selection.value;
+            //localStorage.setItem("name",name);
+            //localStorage.setItem("email",email);
+            const obj={
+                amount,
+                kmtravelled,
+                category1
+            }
+            localStorage.setItem(obj.category1,JSON.stringify(obj));
+            showuseronscreen(obj);
+
+
+        }
+        function showuseronscreen(obj){
+            const parentelem=document.getElementById("users")
+            const childele=document.createElement("li")
+            childele.textContent=obj.amount+'-'+obj.kmtravelled+'-'+obj.category1;
+            parentelem.appendChild(childele)
+        }
+
+    </script>
+
+
+    
+   </div>
+  </div>
